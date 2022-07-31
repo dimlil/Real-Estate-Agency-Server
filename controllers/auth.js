@@ -25,3 +25,15 @@ export const register = async (req, res) => {
         });
     }
 }
+export const login = async (req, res) => {
+    const { username, password } = req.body;
+    const user = await User.findOne({ username });
+    if (!user) { return res.status(404).send('User Not Found') }
+
+    const status = await bcrypt.compare(password, user.password);
+    if (status) {
+        const token = await generateToken(username);
+        res.cookie('aid', token);
+    }
+    return res.status(200).send('Successfuly logged in');
+}
