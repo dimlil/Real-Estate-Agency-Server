@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { login, register } from "../controllers/auth.js";
+import { login, logout, register } from "../controllers/auth.js";
 import { verifyUser } from "../controllers/verifyUser.js";
 const authRouter = Router();
 
@@ -9,6 +9,10 @@ authRouter.post('/register', (req, res) => {
 
 authRouter.post('/login', (req, res) => {
     login(req, res);
+});
+
+authRouter.get('/logout', async (req, res) => {
+    logout(req,res);
 });
 
 authRouter.get('/verify', async (req, res) => {

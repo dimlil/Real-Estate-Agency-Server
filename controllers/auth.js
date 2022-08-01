@@ -25,6 +25,7 @@ export const register = async (req, res) => {
         });
     }
 }
+
 export const login = async (req, res) => {
     const { username, password } = req.body;
     const user = await User.findOne({ username });
@@ -36,4 +37,15 @@ export const login = async (req, res) => {
         res.cookie('aid', token);
     }
     return res.status(200).send('Successfuly logged in');
+}
+
+export const logout = (req, res) => {
+    try {
+        res.clearCookie('aid');
+        res.status(200).send('Successfuly logged out');
+    } catch (error) {
+        if (error) {
+            res.status(400).send(error);
+        }
+    }
 }
