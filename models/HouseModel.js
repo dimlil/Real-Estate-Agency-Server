@@ -1,4 +1,4 @@
-import mongoose, { Schema } from "mongoose";
+import mongoose from "mongoose";
 
 const HouseSchema = new mongoose.Schema({
     name: {
@@ -26,15 +26,15 @@ const HouseSchema = new mongoose.Schema({
         required: true
     },
     availablePieces: {
-        type: String,
+        type: Number,
         required: true
     },
     rentedAHome: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }],
     Owner: {
-        type: Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     }
 });
