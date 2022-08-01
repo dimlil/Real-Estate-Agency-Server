@@ -17,6 +17,7 @@ export const register = async (req, res) => {
         await user.save();
         const token = await generateToken(username);
         res.cookie('aid', token);
+        res.cookie('userId', user._id.toHexString());
         return res.status(200).send('Successful');
     } catch (e) {
         console.log(e);
@@ -35,6 +36,7 @@ export const login = async (req, res) => {
     if (status) {
         const token = await generateToken(username);
         res.cookie('aid', token);
+        res.cookie('userId', user._id.toHexString());
     }
     return res.status(200).send('Successfuly logged in');
 }
