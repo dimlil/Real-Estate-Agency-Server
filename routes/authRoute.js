@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { login, logout, register } from "../controllers/auth.js";
-import { verifyUser } from "../controllers/verifyUser.js";
+import { checkToken } from "../controllers/verifyUser.js";
 const authRouter = Router();
 
 authRouter.post('/register', (req, res) => {
@@ -17,7 +17,7 @@ authRouter.get('/logout', async (req, res) => {
 
 authRouter.get('/verify', async (req, res) => {
     const token = req.cookies['aid'];
-    const result = await verifyUser(token);
+    const result = await checkToken(token);
     res.send(result)
 });
 
