@@ -26,7 +26,7 @@ export const getTopPosts = async (req, res) => {
 
 export const getPost = async (req, res) => {
     try {
-        const house = await House.findById(req.params.id);
+        const house = await House.findById(req.params.id).populate('rentedAHome');
         const isLoggedIn = req.cookies['userId'] ? true : false;
         const isOwner = house.Owner._id.toHexString() === req.cookies['userId'];
         res.status(200).json({ house, isLoggedIn, isOwner, });
