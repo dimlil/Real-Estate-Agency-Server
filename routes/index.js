@@ -1,5 +1,7 @@
 import { Router } from "express";
 import { createPost } from "../controllers/create.js";
+import { deletePost } from "../controllers/delete.js";
+import { editPost } from "../controllers/edit.js";
 import { getAllPosts, getPost, getTopPosts } from "../controllers/getPost.js";
 const router = Router();
 
@@ -21,6 +23,18 @@ router.post('/create', (req, res) => {
 
 router.get('/details/:id', (req, res) => {
     getPost(req,res);
+});
+
+router.delete('/delete/:id', (req, res) => {
+    deletePost(req,res);
+});
+
+router.put('/edit/:id', (req, res) => {
+    editPost(req,res);
+});
+
+router.put('/rent/:id', (req, res) => {
+    editPost(req,res);
 });
 
 export default router
