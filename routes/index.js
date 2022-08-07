@@ -3,6 +3,7 @@ import { createPost } from "../controllers/create.js";
 import { deletePost } from "../controllers/delete.js";
 import { editPost } from "../controllers/edit.js";
 import { getAllPosts, getPost, getTopPosts } from "../controllers/getPost.js";
+import { rent } from "../controllers/rent.js";
 const router = Router();
 
 router.get('/', (req, res) => {
@@ -34,7 +35,7 @@ router.put('/edit/:id', (req, res) => {
 });
 
 router.put('/rent/:id', (req, res) => {
-    editPost(req,res);
+    rent(req,res);
 });
 
 export default router
