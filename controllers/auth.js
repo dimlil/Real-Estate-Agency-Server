@@ -37,8 +37,9 @@ export const login = async (req, res) => {
         const token = await generateToken(username);
         res.cookie('aid', token);
         res.cookie('userId', user._id.toHexString());
+        return res.status(200).send('Successfuly logged in');
     }
-    return res.status(200).send('Successfuly logged in');
+    return res.status(404).send('Wrong Password');
 }
 
 export const logout = (req, res) => {
