@@ -2,7 +2,7 @@ import { Router } from "express";
 import { createPost } from "../controllers/create.js";
 import { deletePost } from "../controllers/delete.js";
 import { editPost } from "../controllers/edit.js";
-import { getAllPosts, getPost, getTopPosts } from "../controllers/getPost.js";
+import { getAllPosts, getPost, getTopPosts, searchPost } from "../controllers/getPost.js";
 import { rent } from "../controllers/rent.js";
 const router = Router();
 
@@ -20,6 +20,10 @@ router.get('/topPosts', (req, res) => {
 
 router.post('/create', (req, res) => {
     createPost(req, res);
+});
+
+router.post('/search', (req, res) => {
+    searchPost(req, res);
 });
 
 router.get('/details/:id', (req, res) => {

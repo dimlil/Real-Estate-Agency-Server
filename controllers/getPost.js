@@ -12,6 +12,18 @@ export const getAllPosts = async (req, res) => {
     }
 }
 
+export const searchPost = async (req, res) => {
+    try {
+        const houses = await House.find({type: req.body.search});
+        if (houses.length === 0) {
+            throw 'Nothing found'
+        }
+        res.json(houses);
+    } catch (error) {
+        res.status(404).json({ error })
+    }
+}
+
 export const getTopPosts = async (req, res) => {
     try {
         const houses = await House.find({}).sort({ createdAt: 'desc' }).limit(3);
