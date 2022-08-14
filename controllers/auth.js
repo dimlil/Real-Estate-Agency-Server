@@ -44,8 +44,8 @@ export const login = async (req, res) => {
 
 export const logout = (req, res) => {
     try {
-        res.clearCookie('aid');
-        res.clearCookie('userId');
+        res.clearCookie('aid', { httpOnly: true, sameSite: 'none', secure: true });
+        res.clearCookie('userId', { httpOnly: true, sameSite: 'none', secure: true });
         res.status(200).send('Successfuly logged out');
     } catch (error) {
         if (error) {
