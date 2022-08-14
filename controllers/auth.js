@@ -16,8 +16,8 @@ export const register = async (req, res) => {
     try {
         await user.save();
         const token = await generateToken(username);
-        res.cookie('aid', token);
-        res.cookie('userId', user._id.toHexString());
+        res.cookie('aid', token, { httpOnly: true, sameSite: 'none', secure: true });
+        res.cookie('userId', user._id.toHexString(), { httpOnly: true, sameSite: 'none', secure: true });
         return res.status(200).send('Successful');
     } catch (e) {
         console.log(e);
@@ -35,8 +35,8 @@ export const login = async (req, res) => {
     const status = await bcrypt.compare(password, user.password);
     if (status) {
         const token = await generateToken(username);
-        res.cookie('aid', token);
-        res.cookie('userId', user._id.toHexString());
+        res.cookie('aid', token, { httpOnly: true, sameSite: 'none', secure: true });
+        res.cookie('userId', user._id.toHexString(), { httpOnly: true, sameSite: 'none', secure: true });
         return res.status(200).send('Successfuly logged in');
     }
     return res.status(404).send('Wrong Password');
