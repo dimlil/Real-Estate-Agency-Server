@@ -2,10 +2,10 @@
 
 This server is for [Real Estate Agency](https://real-estate-agency-react.netlify.app). It is deployed [live](https://real-estate-agency-server.herokuapp.com).
 
-## What can do?
+# What can do?
 It can handle login, register and logout requests. It can create post for house and save it database. Logged users can delete or edit house if they are owners or can rent a house. Server can return specific house.
 
-## What I am using?
+# What I am using?
 - Express
 - MongoDB
 - JSON Web Token
@@ -109,3 +109,15 @@ It can handle login, register and logout requests. It can create post for house 
 `../rent/:id`
 - Send PUT request
 - It searches for house by provided id and updates available pieces by decreasing it by 1 and $push userId in rentedAHome array
+
+# How to set up?
+- clone this repositoriy
+- run npm install to install all dependencies
+- add **.env file at root level**
+- add in .env file:
+```
+PORT=*port on you want to run the server. Example: 4000*
+DB_URL=*your MongoDB*
+PRIVATE_KEY=*your privet key for jwt*
+ORIGIN_URL=*url that you want to have access to this server. Example: http://localhost:3000. If you want more sites to haves access use [http://localhost:3000,http://localhost:3000] or '*' for all sites.*
+```
