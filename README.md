@@ -119,5 +119,7 @@ It can handle login, register and logout requests. It can create post for house 
 PORT=*port on you want to run the server. Example: 4000*
 DB_URL=*your MongoDB*
 PRIVATE_KEY=*your privet key for jwt*
-ORIGIN_URL=*url that you want to have access to this server. Example: http://localhost:3000. If you want more sites to haves access use [http://localhost:3000,http://localhost:3000] or '*' for all sites.*
+ORIGIN_URL=*url that you want to have access to this server. Example: http://localhost:3000. 
+If you want more sites to haves access use [http://localhost:3000,http://localhost:3000]
+or '*' for all sites.*
 ```
