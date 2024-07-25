@@ -1,6 +1,6 @@
 <h1 align="center">Real Estate Agency Server</h1>
 
-This server is for [Real Estate Agency](https://real-estate-agency-react.netlify.app). [live demo](https://web-production-4014b.up.railway.app).
+This server is for [Real Estate Agency](https://real-estate-agency-react.netlify.app). [live demo](https://real-estate-agency-server.onrender.com).
 
 # What is Real Estate Agency Server?
 This is server for my project [Real Estate Agency](https://real-estate-agency-react.netlify.app) witch is an exam task in [Software University Sofia](https://softuni.bg). The server can handle login, register and logout requests. It can create post for house and save it in database, return all houses or specific house by its id in database. Logged users can delete or edit house if they are owners or can rent a house.
